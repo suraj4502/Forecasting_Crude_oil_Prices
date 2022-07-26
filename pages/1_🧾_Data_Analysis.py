@@ -8,6 +8,8 @@ import plotly.express as px
 st.cache()
 df = pd.read_excel('data/RBRTE Data.xlsx')
 df['Date']= pd.to_datetime(df['Date'])
+df['Date']=df['Date'].dt.normalize()
+
 df['Price']= pd.to_numeric(df['Price'])
 df['years']= df.Date.dt.strftime("%Y") # Year Extraction
 df['months']= df.Date.dt.strftime("%B") # month extraction
@@ -17,7 +19,7 @@ df['months']= df.Date.dt.strftime("%B") # month extraction
 st.set_page_config(page_title='Data_Analysis', page_icon='💨', layout="centered", initial_sidebar_state="expanded", menu_items=None)
 st.title("Data Analysis...")
 st.markdown("---")
-st.write("Oil price Data")
+st.header("Oil price Data")
 st.dataframe(df)
 st.markdown("---")
 st.header("Line Chart. ")
