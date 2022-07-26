@@ -106,3 +106,34 @@ output.index = output.index.strftime('%d %b %Y')
 output = output.rename({'Forecast':"Forecasted OIL Prices($)"},axis='columns')
 st._legacy_dataframe(output)
 st.markdown("---")
+
+
+
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+st.markdown("\n")
+
+
+
+
+
+#st.markdown("---")
+st.markdown("- Developed by `SKY`.   ⇨[github ](https://github.com/suraj4502), [Linkedin](https://www.linkedin.com/in/surajkumar-yadav-6ab2011a4/), [Ig](https://www.instagram.com/suraj452/).")
+#st.markdown("---")
