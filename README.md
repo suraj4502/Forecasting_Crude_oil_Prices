@@ -1,15 +1,15 @@
 
 # Forecasting Crude Oil prices.
-The Aim of the project is to forecast the next three
- months prices of crude oil using Data Science techniques.
+[WebApp](https://suraj4502-forecasting-crude-oil-prices---home-3vmqdy.streamlit.app/)
 
-Used the past data of Brent Crude oil prices from 1987
- for developing various Time Series models such as AR, MA, ARIMA
- , SARIMA, LSTM, etc.
-
- Developed and Deployed a webapp that contains analysis of past data and Future forecasted values of crude oil using Machine Learning models.
+- The Crude Oil Price Forecasting project is a time series forecasting project that aims to predict crude oil prices based on historical data. 
+- The project uses a dataset containing information about the price of crude oil from 1987, as well as other relevant economic and market indicators.
+- The project uses various time series forecasting techniques such as  AR, MA, ARIMA, SARIMA, LSTM, etc.
+- The project can be useful for investors, traders, and policymakers to make informed decisions about crude oil investments, hedging strategies, and energy policy. 
+---
+Developed and Deployed a webapp that contains analysis of past data and Future forecasted values of crude oil using Machine Learning models.
 Check out the app here : https://suraj4502-forecasting-crude-oil-prices---home-3vmqdy.streamlit.app/
-
+---
 
 
 ## Environment Variables
