@@ -6,9 +6,12 @@
 - The project uses a dataset containing information about the price of crude oil from 1987, as well as other relevant economic and market indicators.
 - The project uses various time series forecasting techniques such as  AR, MA, ARIMA, SARIMA, LSTM, etc.
 - The project can be useful for investors, traders, and policymakers to make informed decisions about crude oil investments, hedging strategies, and energy policy. 
+
+
 ---
-Developed and Deployed a webapp that contains analysis of past data and Future forecasted values of crude oil using Machine Learning models.
-Check out the app here : https://suraj4502-forecasting-crude-oil-prices---home-3vmqdy.streamlit.app/
+ Developed and Deployed a webapp that contains analysis of past data and Future forecasted values of crude oil using Machine Learning models.
+ Check out the app here : https://suraj4502-forecasting-crude-oil-prices---home-3vmqdy.streamlit.app/
+ 
 ---
 
 
