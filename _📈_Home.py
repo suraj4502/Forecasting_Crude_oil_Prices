@@ -1,28 +1,24 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
+import plotly.graph_objects as go
 from PIL import Image
-image = Image.open('data/img_1_4.jpg')
+import helper
+image = Image.open('data/Images/img_1_4.jpg')
 
 st.set_page_config(page_title='Oil price Forecasting', page_icon='📈', layout="centered", initial_sidebar_state="expanded", menu_items=None)
 #
 st.cache()
-df = pd.read_excel('data/RBRTE Data.xlsx')
+df = helper.data_preprocessor('data/RBRTEd.xls')
 
-st.title("Forecasting Crude oil prices...")
+st.title("Forecasting Crude oil prices 📈 ")
 st.markdown('---')
 st.image(image)
 st.markdown('---')
 
 
-
-
-# """Data Preprocessing"""
-df['Date']= pd.to_datetime(df['Date'],utc=False)
-df['Price']= pd.to_numeric(df['Price'])
+#data preprocessing
 df.set_index(df['Date'])
 y = df['Price'].fillna(method='ffill')
 y = y.values.reshape(-1, 1)
@@ -67,73 +63,95 @@ df_future['Forecast'] = Y_.flatten()
 df_future['Actual'] = np.nan
 
 results = df_past.append(df_future).set_index('Date')
-date=st.sidebar.date_input("Enter the date till you want you forecast.")
+date=st.sidebar.date_input("#### Enter the date till you want you Forecast : ")
 final = results.loc['1987-05-20': date]
 
-st.header("Crude Oil Prices [Forecasted]")
-fig = px.line(data_frame=final)
+# st.dataframe(final)
+
+# plotting forecasted.
+st.header("Forecasted Prices 💲 : ")
+fig = px.line(data_frame=final, y=['Actual', 'Forecast'],
+              color_discrete_sequence=['#5D9C59', '#FF8400'])
 fig.update_layout(
     autosize=True,
     width=850,
     height=600,
-    #xaxis=dict(showgrid=False),
-    #yaxis=dict(showgrid=False),
-    plot_bgcolor='#e7f6f2',       #setting bgcolor
-    paper_bgcolor="#a5c9ca",
-)
+    plot_bgcolor='white',
+    paper_bgcolor="#a5c9ca")
 fig.update_xaxes(rangeselector_activecolor='#F15412')
 fig.update_xaxes(color='#1A4D2E')
 fig.update_xaxes(gridcolor='#EEEEEE')
 fig.update_yaxes(gridcolor='#EEEEEE')
-fig.update_xaxes(rangeslider_visible=True,
-                rangeselector=dict(
-                buttons=list([
-                    dict(count=1,label="1m",step='month',stepmode='backward'),
-                    dict(count=2,label="2m",step='month',stepmode='backward'),
-                    dict(count=3,label="3m",step='month',stepmode='backward'),
-                    dict(count=4,label="6m",step='year',stepmode='backward'),
-                    dict(count=5,label="1y",step="year",stepmode='backward'),
-
-                    dict(step='all')
-                ])))
+fig.update_xaxes(
+    rangeslider_visible=True,
+    rangeselector=dict(
+        buttons=list([
+            dict(count=1, label="1m", step='month', stepmode='backward', visible=True),
+            dict(count=2, label="2m", step='month', stepmode='backward', visible=True),
+            dict(count=3, label="3m", step='month', stepmode='backward', visible=True),
+            dict(count=4, label="6m", step='year', stepmode='backward', visible=True),
+            dict(count=5, label="1y", step="year", stepmode='backward', visible=True),
+            dict(step='all', visible=True)
+        ])
+    )
+)
 st.plotly_chart(fig)
 st.markdown("---")
-st.header("Results :")
-day_1 = pd.to_datetime('2022-06-28').date()
+
+
+#plotting table
+st.header("Results 🛢️ :")
+day_1 = pd.to_datetime('2023-06-26').date()
 output=final.loc[day_1:date,'Forecast']
 output = pd.DataFrame(output)
 output.index = output.index.strftime('%d %b %Y')
 output = output.rename({'Forecast':"Forecasted OIL Prices($)"},axis='columns')
-st._legacy_dataframe(output)
+st.dataframe(output)
+
+
+# fig = go.Figure(data=[go.Table(
+#     header=dict(values=list(['Date','Forecasted OIL Prices($)']),
+#                 fill_color='#F7E6C4',
+#                 align='center'),
+#     cells=dict(values=[output.index,output['Forecasted OIL Prices($)']],
+#                fill_color='#FFF4F4',
+#                align='center'))
+# ])
+# st.plotly_chart(fig)
 st.markdown("---")
 
 
 
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
-st.markdown("\n")
+
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+st.sidebar.markdown("\n")
+
+
 
 
 
 
 
 #st.markdown("---")
-st.markdown("- Developed by `SKY`.   ⇨[github ](https://github.com/suraj4502), [Linkedin](https://www.linkedin.com/in/surajkumar-yadav-6ab2011a4/), [Ig](https://www.instagram.com/suraj452/).")
+st.sidebar.markdown("- Developed by `SKY`.   ⇨[github ](https://github.com/suraj4502), [Linkedin](https://www.linkedin.com/in/suraj4502), [Ig](https://www.instagram.com/suraj452/).")
 #st.markdown("---")
