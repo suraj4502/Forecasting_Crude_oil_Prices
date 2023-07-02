@@ -11,7 +11,7 @@ st.title("Forecasting Using fbProphet.")
 st.markdown("---")
 
 
-with open('Models/prophet_model.pkl', 'rb') as f:
+with open(r'Models\prophet_model.pkl', 'rb') as f:
     model= pickle.load(f)
 
 future = model.make_future_dataframe(periods=365)
