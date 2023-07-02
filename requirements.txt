@@ -8,3 +8,6 @@ seaborn
 streamlit
 tensorflow
 openpyxl
+xlrd
+prophet
+
