@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from PIL import Image
+import datetime
 import helper
 image = Image.open('data/Images/img_1_4.jpg')
 
@@ -62,11 +63,15 @@ df_future['Date'] = pd.date_range(start=df_past['Date'].iloc[-1] + pd.Timedelta(
 df_future['Forecast'] = Y_.flatten()
 df_future['Actual'] = np.nan
 
-results = df_past.append(df_future).set_index('Date')
-date=st.sidebar.date_input("#### Enter the date till you want you Forecast : ")
-final = results.loc['1987-05-20': date]
 
-# st.dataframe(final)
+combined_df = pd.concat([df_past, df_future])
+combined_df.set_index('Date', inplace=True)
+end_date = st.sidebar.date_input("#### Enter the date till you want your Forecast: ")
+end_datetime = datetime.datetime.combine(end_date, datetime.datetime.min.time())
+
+final = combined_df[combined_df.index <= end_datetime]  # final stores all the values from starting till you want [input you give]
+
+
 
 # plotting forecasted.
 st.header("Forecasted Prices 💲 : ")
@@ -81,7 +86,7 @@ fig.update_layout(
 fig.update_xaxes(rangeselector_activecolor='#F15412')
 fig.update_xaxes(color='#1A4D2E')
 fig.update_xaxes(gridcolor='#EEEEEE')
-fig.update_yaxes(gridcolor='#EEEEEE')
+fig.update_yaxes(title='price',gridcolor='#EEEEEE')
 fig.update_xaxes(
     rangeslider_visible=True,
     rangeselector=dict(
@@ -101,12 +106,15 @@ st.markdown("---")
 
 #plotting table
 st.header("Results 🛢️ :")
-day_1 = pd.to_datetime('2023-06-26').date()
-output=final.loc[day_1:date,'Forecast']
+
+
+date_1 = pd.to_datetime('2023-06-26').date()
+output = final.loc[date_1:final.index[-1], 'Forecast']
 output = pd.DataFrame(output)
 output.index = output.index.strftime('%d %b %Y')
-output = output.rename({'Forecast':"Forecasted OIL Prices($)"},axis='columns')
+output = output.rename(columns={'Forecast': 'Forecasted OIL Prices($)'})
 st.dataframe(output)
+
 
 
 # fig = go.Figure(data=[go.Table(
