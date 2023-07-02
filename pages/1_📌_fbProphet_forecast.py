@@ -2,21 +2,23 @@ import pandas as pd
 import streamlit as st
 from prophet import Prophet
 from prophet.plot import plot_plotly, plot_components_plotly
-import plotly.express as px
-import plotly.graph_objects as go
-import joblib
-import os
+import time
+from helper import prophet_data_processor
+
+df = prophet_data_processor('data/RBRTEd.xls')
 
 st.title("Forecasting Using fbProphet.")
 st.markdown("---")
 
-models_dir = os.path.abspath("Models")
-# st.write(models_dir)
-file_name = "prophet_model.pkl"
-file_path = os.path.join(models_dir, file_name)
-# st.write(file_path)
 
-model = joblib.load(file_path)
+
+with st.spinner(text="Model Training..."):
+     time.sleep(10)
+
+
+
+model = Prophet()
+model.fit(df)
 
 
 future = model.make_future_dataframe(periods=365)
