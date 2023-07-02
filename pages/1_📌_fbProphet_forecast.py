@@ -4,21 +4,20 @@ from prophet import Prophet
 from prophet.plot import plot_plotly, plot_components_plotly
 import plotly.express as px
 import plotly.graph_objects as go
-import pickle
+import joblib
 import os
 
 st.title("Forecasting Using fbProphet.")
 st.markdown("---")
 
 models_dir = os.path.abspath("Models")
-st.write(models_dir)
+# st.write(models_dir)
 file_name = "prophet_model.pkl"
 file_path = os.path.join(models_dir, file_name)
-st.write(file_path)
+# st.write(file_path)
 
+model = joblib.load(file_path)
 
-with open(file_path, 'rb') as f:
-    model= pickle.load(f)
 
 future = model.make_future_dataframe(periods=365)
 
