@@ -25,8 +25,8 @@ future = model.make_future_dataframe(periods=365)
 
 st.header("👉🏽Results :")
 forecast = model.predict(future)
-forecast=forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-st.dataframe(forecast[forecast['ds']>'2023-06-26 00:00:00'])
+temp=forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
+st.dataframe(temp[temp['ds']>'2023-06-26 00:00:00'])
 
 
 st.header("👉🏽Result Chart :")
