@@ -1,52 +1,69 @@
 
 # Forecasting Crude Oil prices.
-[WebApp](https://suraj4502-forecasting-crude-oil-prices---home-3vmqdy.streamlit.app/)
+[WebApp](https://suraj4502-forecasting-project.streamlit.app/)
 
-- The Crude Oil Price Forecasting project is a time series forecasting project that aims to predict crude oil prices based on historical data. 
-- The project uses a dataset containing information about the price of crude oil from 1987, as well as other relevant economic and market indicators.
-- The project uses various time series forecasting techniques such as  AR, MA, ARIMA, SARIMA, LSTM, etc.
-- The project can be useful for investors, traders, and policymakers to make informed decisions about crude oil investments, hedging strategies, and energy policy. 
+
+### Aim: <br>
+The aim of the Crude Oil Price Forecasting project is to develop accurate and reliable models for predicting future crude oil prices, providing valuable insights for decision-making in areas such as energy policy and investment strategies.<br>
+
+Here are some key points about the project:
+
+1. Dataset: The project utilizes a dataset that includes historical data on crude oil prices, typically starting from the year 1987. Additionally, the dataset may contain other economic and market indicators that have a significant impact on crude oil prices.
+
+2. Forecasting Techniques: The project employs a range of time series forecasting techniques to predict crude oil prices. These techniques may include Autoregressive (AR), Moving Average (MA), Autoregressive Integrated Moving Average (ARIMA), Seasonal Autoregressive Integrated Moving Average (SARIMA), Long Short-Term Memory (LSTM), and other suitable models.
+
+3. Applications: The project has practical applications for various stakeholders such as investors, traders, and policymakers.
+
 
 
 ---
- Developed and Deployed a webapp that contains analysis of past data and Future forecasted values of crude oil using Machine Learning models.
- Check out the app here : https://suraj4502-forecasting-crude-oil-prices---home-3vmqdy.streamlit.app/
+ Developed and Deployed a web app that analyzes past data and Future forecasted values of crude oil using Machine Learning models.
+ Check out the app here: https://suraj4502-forecasting-project.streamlit.app/
  
 ---
+### Results :
+◉Train Mean Absolute Error: 0.9293671837554082 <br>
+◉Train Root Mean Squared Error: 1.323646028008785 <br>
+◉Test Mean Absolute Error: 1.4509820900007175 <br>
+◉Test Root Mean Squared Error: 1.9774892106388844 <br>
 
+![train_results](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/2e3eacd5-353f-4c06-88ad-fbbc3909647e)
+<br>
+<br>
+<br>
+![test_results](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/6172ee21-a634-4934-9466-1e8dfcbe4946)
 
+---
 ## Environment Variables
 
-To run this project, you will need to install the 
-following Python libraries.
-
-- matplotlib==3.5.1
-- numpy==1.22.4
-- pandas==1.4.3
-- Pillow==9.2.0
-- plotly==5.9.0
-- scikit_learn==1.1.1
-- seaborn==0.11.2
-- streamlit==1.11.0
-- tensorflow==2.9.1
-- openpyxl==3.0.10
-
-
+The following Python libraries have been used to build this project.
+```
+matplotlib==3.6.3
+numpy==1.23.2
+pandas==1.4.3
+Pillow==10.0.0
+plotly==5.13.0
+prophet==1.1.4
+scikit_learn==1.3.0
+seaborn==0.12.2
+streamlit
+tensorflow==2.12.0
+xlrd
+```
+---
 ## Screenshots
 
-![image](https://user-images.githubusercontent.com/76464630/210103301-4cd7a07a-efe4-42c5-9164-3cd54b341e2d.png)
+![image](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/56989a01-7207-4994-88dd-af61f9d53571)
 
-![image](https://user-images.githubusercontent.com/76464630/210103373-598d1d27-e22f-47a2-9f19-ae5ed220056c.png)
+![image](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/6e9a9cab-97e8-450c-ac6a-46fb492c1318)
 
-![image](https://user-images.githubusercontent.com/76464630/210103491-7b4e8fcd-a5f3-4ff0-a684-95ce1ac7cc48.png)
+![image](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/68d505b8-b549-4d12-8938-c7a7af7ad74e)
 
-![image](https://user-images.githubusercontent.com/76464630/210103578-c39e3449-08ac-4901-bb62-687536d21d2e.png)
+![image](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/e7a89756-8406-44e7-9dc0-781eab390800)
 
-![image](https://user-images.githubusercontent.com/76464630/210103661-1299e60f-72ac-4191-a9ae-f7f41f6093d4.png)
+![image](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/c24b7681-a0c7-4914-9030-23348bf7659c)
 
-![image](https://user-images.githubusercontent.com/76464630/210103708-e00f8c4e-9c17-43af-b10e-fa95fc334186.png)
+![image](https://github.com/suraj4502/Forecasting_Crude_oil_Prices/assets/76464630/e64a48f5-9815-46f7-af1f-c2c8d257d60d)
 
-![image](https://user-images.githubusercontent.com/76464630/210103732-625ad47c-1a8b-496a-8a90-d65bb1657ef6.png)
-
-
+---
 ---
