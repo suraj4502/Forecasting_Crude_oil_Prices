@@ -25,7 +25,7 @@ future = model.make_future_dataframe(periods=365)
 
 st.header("👉🏽Results :")
 forecast = model.predict(future)
-forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+forecast=forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
 st.dataframe(forecast[forecast['ds']>'2023-06-26 00:00:00'])
 
 
